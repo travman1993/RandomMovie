@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Movie Picker - Random movie selector for your perfect movie night. Discover what to watch instantly!">
+    <meta name="keywords" content="movie picker, random movie generator, movie night, what to watch, movie selector">
+    <meta name="theme-color" content="#0a0a0a">
+    
+    <!-- OG Tags for Social Share -->
+    <meta property="og:title" content="Movie Picker — Random Movie Night Generator">
+    <meta property="og:description" content="Can't decide what to watch? Movie Picker randomly selects the perfect film for your next movie night.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moviepicker.app">
+    <meta property="og:image" content="https://moviepicker.app/og-image.jpg">
+    
+    <title>Movie Picker — Random Movie Night Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- HEADER with Red Curtain Theme -->
+    <header class="header">
+        <div class="curtain-top"></div>
+        <div class="header-content">
+            <h1 class="marquee-title">🎬 MOVIE PICKER</h1>
+            <p class="subtitle">What should we watch tonight?</p>
+        </div>
+        <div class="spotlight-left"></div>
+        <div class="spotlight-right"></div>
+    </header>
+
+    <!-- AD PLACEHOLDER 1 - Below Header -->
+    <div class="ad-container ad-top">
+        <div class="ad-placeholder">
+            <!-- Google Ads will go here -->
+            <p>Advertisement</p>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- Movie Generator Section -->
+        <section class="generator-section">
+            <button id="pickBtn" class="pick-button">
+                <span class="button-text">PICK A MOVIE</span>
+                <span class="button-glow"></span>
+            </button>
+        </section>
+
+        <!-- Movie Output Card -->
+        <section class="movie-card-container">
+            <div id="movieCard" class="movie-card hidden">
+                <div class="card-poster-placeholder"></div>
+                
+                <div class="card-content">
+                    <h2 id="movie-title" class="movie-title">Movie Title</h2>
+                    
+                    <div id="movie-meta" class="movie-meta">
+                        <span class="movie-year">2024</span>
+                        <span class="movie-rating">PG-13</span>
+                    </div>
+                    
+                    <p id="movie-description" class="movie-description">
+                        Short description coming soon.
+                    </p>
+                </div>
+
+                <button id="pickAgainBtn" class="pick-again-button">
+                    Pick Another
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- AD PLACEHOLDER 2 - Below Movie Card -->
+    <div class="ad-container ad-middle">
+        <div class="ad-placeholder">
+            <!-- Google Ads will go here -->
+            <p>Advertisement</p>
+        </div>
+    </div>
+
+    <!-- FUTURE FEATURES SECTION (Hooks for expandability) -->
+    <section class="future-features hidden">
+        <div class="feature-box">
+            <h3>🍿 Snack Generator</h3>
+            <p>Coming soon: Get snack pairing suggestions for your movie!</p>
+        </div>
+        <div class="feature-box">
+            <h3>🍕 Dinner Generator</h3>
+            <p>Coming soon: Get dinner ideas to go with your flick!</p>
+        </div>
+        <div class="feature-box">
+            <h3>🎭 Movie Filters</h3>
+            <p>Coming soon: Filter by genre, decade, and more!</p>
+        </div>
+        <div class="feature-box">
+            <h3>📺 Where to Watch</h3>
+            <p>Coming soon: Find where to stream your selected movie!</p>
+        </div>
+    </section>
+
+    <!-- FOOTER with Links -->
+    <footer class="footer">
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="cookies.html">Cookies</a>
+        </nav>
+        <p class="footer-text">&copy; 2024 Movie Picker. All rights reserved.</p>
+    </footer>
+
+    <!-- AD PLACEHOLDER 3 - Sticky Mobile Bottom -->
+    <div class="ad-container ad-sticky-mobile">
+        <div class="ad-placeholder">
+            <!-- Google Ads will go here -->
+            <p>Advertisement</p>
+        </div>
+    </div>
+
+    <script src="movies.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

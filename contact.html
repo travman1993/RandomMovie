@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Movie Picker - Get in touch with feedback and suggestions">
+    <meta name="keywords" content="contact, feedback, movie picker">
+    <title>Contact Movie Picker</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .page-title {
+            color: #d4af37;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .page-section {
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #1a1a1a 0%, rgba(30, 30, 30, 0.8) 100%);
+            border-left: 4px solid #d4af37;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .page-section h2 {
+            color: #e8c547;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .page-section p {
+            color: #cccccc;
+            line-height: 1.7;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover {
+            color: #e8c547;
+            transform: translateX(-5px);
+        }
+        .contact-form {
+            background: linear-gradient(135deg, #1a1a1a 0%, rgba(30, 30, 30, 0.8) 100%);
+            border: 2px solid #d4af37;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            color: #d4af37;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #d4af37;
+            color: #ffffff;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            border-color: #e8c547;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #d4af37 0%, #e8c547 100%);
+            border: none;
+            color: #0a0a0a;
+            font-weight: 900;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .info-box {
+            background: rgba(196, 30, 58, 0.1);
+            border-left: 4px solid #c41e3a;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            color: #e63946;
+            margin-bottom: 0.5rem;
+        }
+        .info-box p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 600px) {
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="curtain-top"></div>
+        <div class="header-content">
+            <h1 class="marquee-title">🎬 MOVIE PICKER</h1>
+            <p class="subtitle">What should we watch tonight?</p>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <h1 class="page-title">Contact Us</h1>
+
+        <div class="page-section">
+            <h2>We'd Love to Hear From You</h2>
+            <p>Have feedback? Found a bug? Want to suggest a movie? We're all ears! Use the form below to get in touch with the Movie Picker team.</p>
+        </div>
+
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required placeholder="e.g., Bug Report, Feature Request, Movie Suggestion">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+        </form>
+
+        <div class="contact-info">
+            <div class="info-box">
+                <h3>📧 Email</h3>
+                <p>hello@moviepicker.app</p>
+            </div>
+            <div class="info-box">
+                <h3>🐦 Social</h3>
+                <p>@MoviePickerApp</p>
+            </div>
+        </div>
+
+        <div class="page-section" style="margin-top: 2rem;">
+            <h2>Response Time</h2>
+            <p>We try to respond to all inquiries within 48 hours. Thank you for your patience!</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="cookies.html">Cookies</a>
+        </nav>
+        <p class="footer-text">&copy; 2024 Movie Picker. All rights reserved.</p>
+    </footer>
+
+    <script src="movies.js"></script>
+</body>
+</html>
