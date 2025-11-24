@@ -2,47 +2,56 @@
 // MOVIE PICKER - JAVASCRIPT LOGIC
 // ============================================
 
-// DOM Elements
-const pickBtn = document.getElementById('pickBtn');
-const pickAgainBtn = document.getElementById('pickAgainBtn');
-const movieCard = document.getElementById('movieCard');
-const movieTitle = document.getElementById('movie-title');
-const movieMeta = document.getElementById('movie-meta');
-const movieDescription = document.getElementById('movie-description');
+// DOM Elements (will be initialized in DOMContentLoaded)
+let pickBtn;
+let pickAgainBtn;
+let movieCard;
+let movieTitle;
+let movieMeta;
+let movieDescription;
 
 // ============================================
 // MAIN FUNCTION: Pick Random Movie
 // ============================================
 
 function pickRandomMovie() {
-    // Validate MOVIES array exists
-    if (!window.MOVIES || !Array.isArray(window.MOVIES) || window.MOVIES.length === 0) {
-        console.error('MOVIES array not found or is empty');
-        movieTitle.textContent = 'Error: Movie list not loaded';
-        movieCard.classList.remove('hidden');
-        return;
+    try {
+        // Validate MOVIES array exists
+        if (!window.MOVIES || !Array.isArray(window.MOVIES) || window.MOVIES.length === 0) {
+            console.error('❌ MOVIES array not found or is empty');
+            if (movieTitle) movieTitle.textContent = 'Error: Movie list not loaded';
+            if (movieCard) movieCard.classList.remove('hidden');
+            return;
+        }
+
+        // Generate random index
+        const randomIndex = Math.floor(Math.random() * window.MOVIES.length);
+        const selectedMovie = window.MOVIES[randomIndex];
+
+        // Validate movie object
+        if (!selectedMovie || !selectedMovie.title) {
+            console.error('❌ Invalid movie object:', selectedMovie);
+            if (movieTitle) movieTitle.textContent = 'Error: Invalid movie data';
+            if (movieCard) movieCard.classList.remove('hidden');
+            return;
+        }
+
+        // Update UI with selected movie
+        updateMovieCard(selectedMovie);
+
+        // Show card with animation
+        if (movieCard) {
+            movieCard.classList.remove('hidden');
+        }
+
+        // Analytics (optional - for future tracking)
+        trackMovieSelection(selectedMovie);
+
+    } catch (error) {
+        console.error('❌ Error in pickRandomMovie:', error);
+        if (movieTitle) movieTitle.textContent = 'Error: ' + error.message;
+        if (movieCard) movieCard.classList.remove('hidden');
     }
-
-    // Generate random index
-    const randomIndex = Math.floor(Math.random() * window.MOVIES.length);
-    const selectedMovie = window.MOVIES[randomIndex];
-
-    // Validate movie object
-    if (!selectedMovie || !selectedMovie.title) {
-        console.error('Invalid movie object:', selectedMovie);
-        movieTitle.textContent = 'Error: Invalid movie data';
-        movieCard.classList.remove('hidden');
-        return;
-    }
-
-    // Update UI with selected movie
-    updateMovieCard(selectedMovie);
-
-    // Show card with animation
-    movieCard.classList.remove('hidden');
-
-    // Analytics (optional - for future tracking)
-    trackMovieSelection(selectedMovie);
 }
 
 // ============================================
@@ -50,22 +59,32 @@ function pickRandomMovie() {
 // ============================================
 
 function updateMovieCard(movie) {
-    // Title
-    movieTitle.textContent = movie.title || 'Unknown Title';
+    try {
+        if (!movieTitle || !movieMeta || !movieDescription) {
+            console.error('❌ Movie card elements not initialized');
+            return;
+        }
 
-    // Year and Rating
-    const year = movie.year || 'N/A';
-    const rating = movie.rating || 'Not Rated';
-    movieMeta.innerHTML = `
-        <span class="movie-year">${year}</span>
-        <span class="movie-rating">${rating}</span>
-    `;
+        // Title
+        movieTitle.textContent = movie.title || 'Unknown Title';
 
-    // Description with fallback text
-    if (movie.description && movie.description.trim() !== '') {
-        movieDescription.textContent = movie.description;
-    } else {
-        movieDescription.textContent = 'Short description coming soon.';
+        // Year and Rating
+        const year = movie.year || 'N/A';
+        const rating = movie.rating || 'Not Rated';
+        movieMeta.innerHTML = `
+            <span class="movie-year">${year}</span>
+            <span class="movie-rating">${rating}</span>
+        `;
+
+        // Description with fallback text
+        if (movie.description && movie.description.trim() !== '') {
+            movieDescription.textContent = movie.description;
+        } else {
+            movieDescription.textContent = 'Short description coming soon.';
+        }
+
+    } catch (error) {
+        console.error('❌ Error updating movie card:', error);
     }
 }
 
@@ -73,27 +92,37 @@ function updateMovieCard(movie) {
 // EVENT LISTENERS
 // ============================================
 
-// Main Pick Button
-pickBtn.addEventListener('click', () => {
-    pickRandomMovie();
-    
-    // Add subtle animation feedback
-    pickBtn.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        pickBtn.style.transform = 'scale(1)';
-    }, 100);
-});
+function attachEventListeners() {
+    if (!pickBtn || !pickAgainBtn || !movieCard) {
+        console.error('❌ Critical DOM elements not found - cannot attach listeners');
+        console.error('pickBtn:', !!pickBtn, 'pickAgainBtn:', !!pickAgainBtn, 'movieCard:', !!movieCard);
+        return;
+    }
 
-// Pick Again Button (inside card)
-pickAgainBtn.addEventListener('click', () => {
-    // Fade out card
-    movieCard.style.opacity = '0.5';
-    
-    setTimeout(() => {
+    // Main Pick Button
+    pickBtn.addEventListener('click', () => {
         pickRandomMovie();
-        movieCard.style.opacity = '1';
-    }, 300);
-});
+        
+        // Add subtle animation feedback
+        pickBtn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            pickBtn.style.transform = 'scale(1)';
+        }, 100);
+    });
+
+    // Pick Again Button (inside card)
+    pickAgainBtn.addEventListener('click', () => {
+        // Fade out card
+        movieCard.style.opacity = '0.5';
+        
+        setTimeout(() => {
+            pickRandomMovie();
+            movieCard.style.opacity = '1';
+        }, 300);
+    });
+
+    console.log('✅ Event listeners attached successfully');
+}
 
 // ============================================
 // KEYBOARD SHORTCUTS (Accessibility)
@@ -177,12 +206,36 @@ function saveMovieToHistory(movie) {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize DOM Elements
+    pickBtn = document.getElementById('pickBtn');
+    pickAgainBtn = document.getElementById('pickAgainBtn');
+    movieCard = document.getElementById('movieCard');
+    movieTitle = document.getElementById('movie-title');
+    movieMeta = document.getElementById('movie-meta');
+    movieDescription = document.getElementById('movie-description');
+
+    // Check if all elements exist
+    if (!pickBtn || !pickAgainBtn || !movieCard || !movieTitle || !movieMeta || !movieDescription) {
+        console.error('❌ ERROR: One or more DOM elements not found!');
+        console.error('pickBtn:', pickBtn);
+        console.error('pickAgainBtn:', pickAgainBtn);
+        console.error('movieCard:', movieCard);
+        console.error('movieTitle:', movieTitle);
+        console.error('movieMeta:', movieMeta);
+        console.error('movieDescription:', movieDescription);
+        return;
+    }
+
     // Verify MOVIES array is loaded
     if (window.MOVIES && Array.isArray(window.MOVIES)) {
-        console.log(`✓ Movie Picker loaded with ${window.MOVIES.length} movies`);
+        console.log(`✅ Movie Picker loaded with ${window.MOVIES.length} movies`);
     } else {
-        console.error('✗ MOVIES array not found. Ensure movies.js is loaded before script.js');
+        console.error('❌ MOVIES array not found. Ensure movies.js is loaded before script.js');
+        return;
     }
+
+    // Attach event listeners
+    attachEventListeners();
 
     // Add focus styling for accessibility
     pickBtn.addEventListener('focus', function() {
