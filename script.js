@@ -1,11 +1,3 @@
-// ============================================
-// MOVIE PICKER - ENHANCED JAVASCRIPT LOGIC
-// Includes: Movie Picker, Dinner Picker, Snack Picker
-// ============================================
-
-// ============================================
-// DOM ELEMENTS INITIALIZATION
-// ============================================
 const DINNER = [
     // Italian Cuisine
     { name: "Spaghetti Carbonara", category: "Italian" },
