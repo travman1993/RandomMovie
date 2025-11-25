@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Movie Picker - Random movie selector for your perfect movie night. Discover what to watch instantly!">
-    <meta name="keywords" content="movie picker, random movie generator, movie night, what to watch, movie selector">
+    <meta name="keywords" content="movie picker, random movie generator, movie night, what to watch, movie selector, dinner picker, snack picker">
     <meta name="theme-color" content="#0a0a0a">
     
     <!-- OG Tags for Social Share -->
     <meta property="og:title" content="Movie Picker — Random Movie Night Generator">
-    <meta property="og:description" content="Can't decide what to watch? Movie Picker randomly selects the perfect film for your next movie night.">
+    <meta property="og:description" content="Can't decide what to watch? Movie Picker randomly selects the perfect film for your next movie night. Plus dinner and snack suggestions!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://moviepicker.app">
     <meta property="og:image" content="https://moviepicker.app/og-image.jpg">
@@ -39,8 +39,19 @@
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
+        
+        <!-- Daily Movie Quote Section (SEO + Fresh Content) -->
+        <section class="daily-quote-section">
+                <h2 class="quote-title">📽️ Daily Movie Quote</h2>
+                <blockquote>
+                    "Here's looking at you, kid."
+                </blockquote>
+                <p>— Casablanca (1942)</p>
+        </section>
+
         <!-- Movie Generator Section -->
         <section class="generator-section">
+            <h2 class="section-title">🍿 Pick A Movie</h2>
             <button id="pickBtn" class="pick-button">
                 <span class="button-text">PICK A MOVIE</span>
                 <span class="button-glow"></span>
@@ -66,39 +77,86 @@
                 </div>
 
                 <button id="pickAgainBtn" class="pick-again-button">
-                    Pick Another
+                    Pick Another Movie
                 </button>
             </div>
         </section>
+
+        <!-- AD PLACEHOLDER 3 - Sticky Mobile Bottom -->
+        <div class="ad-container ad-sticky-mobile">
+            <div class="ad-placeholder">
+                <!-- Google Ads will go here -->
+                <p>Advertisement</p>
+            </div>
+        </div>
+
+        <!-- Dinner Generator Section -->
+        <section class="generator-section">
+            <h2 class="section-title">🍕 Pick A Dinner</h2>
+            <button id="dinnerBtn" class="pick-button dinner-button">
+                <span class="button-text">PICK A DINNER</span>
+                <span class="button-glow"></span>
+            </button>
+        </section>
+
+        <!-- Dinner Output Card -->
+        <section class="dinner-card-container">
+            <div id="dinnerCard" class="result-card dinner-card hidden">
+                <div class="card-content">
+                    <h2 id="dinner-name" class="result-title">Dinner Idea</h2>
+                    <p id="dinner-description" class="result-description">
+                        Perfect pairing for your movie night!
+                    </p>
+                </div>
+
+                <button id="dinnerAgainBtn" class="pick-again-button dinner-again">
+                    Pick Another Dinner
+                </button>
+            </div>
+        </section>
+
+        <!-- AD PLACEHOLDER 3 - Sticky Mobile Bottom -->
+        <div class="ad-container ad-sticky-mobile">
+            <div class="ad-placeholder">
+                <!-- Google Ads will go here -->
+                <p>Advertisement</p>
+            </div>
+        </div>
+
+        <!-- Snack Generator Section -->
+        <section class="generator-section">
+            <h2 class="section-title">🍿 Pick A Snack</h2>
+            <button id="snackBtn" class="pick-button snack-button">
+                <span class="button-text">PICK A SNACK</span>
+                <span class="button-glow"></span>
+            </button>
+        </section>
+
+        <!-- Snack Output Card -->
+        <section class="snack-card-container">
+            <div id="snackCard" class="result-card snack-card hidden">
+                <div class="card-content">
+                    <h2 id="snack-name" class="result-title">Snack Idea</h2>
+                    <p id="snack-description" class="result-description">
+                        The perfect movie snack!
+                    </p>
+                </div>
+
+                <button id="snackAgainBtn" class="pick-again-button snack-again">
+                    Pick Another Snack
+                </button>
+            </div>
+        </section>
+
     </main>
 
-    <!-- AD PLACEHOLDER 2 - Below Movie Card -->
+    <!-- AD PLACEHOLDER 2 - Below Cards -->
     <div class="ad-container ad-middle">
         <div class="ad-placeholder">
             <!-- Google Ads will go here -->
             <p>Advertisement</p>
         </div>
     </div>
-
-    <!-- FUTURE FEATURES SECTION (Hooks for expandability) -->
-    <section class="future-features hidden">
-        <div class="feature-box">
-            <h3>🍿 Snack Generator</h3>
-            <p>Coming soon: Get snack pairing suggestions for your movie!</p>
-        </div>
-        <div class="feature-box">
-            <h3>🍕 Dinner Generator</h3>
-            <p>Coming soon: Get dinner ideas to go with your flick!</p>
-        </div>
-        <div class="feature-box">
-            <h3>🎭 Movie Filters</h3>
-            <p>Coming soon: Filter by genre, decade, and more!</p>
-        </div>
-        <div class="feature-box">
-            <h3>📺 Where to Watch</h3>
-            <p>Coming soon: Find where to stream your selected movie!</p>
-        </div>
-    </section>
 
     <!-- FOOTER with Links -->
     <footer class="footer">
@@ -121,7 +179,10 @@
         </div>
     </div>
 
-    <script src="movies.js"></script>
-    <script src="script.js"></script>
+    
+    <script src="dinners.js" defer></script>
+    <script src="snacks.js" defer></script>
+    <script src="movies.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,222 @@
+// ============================================
+// SNACK PICKER - 200 SNACK OPTIONS
+// Perfect snacks for movie night
+// ============================================
+
+const SNACKS = [
+    // Classic Movie Snacks
+    { name: "Buttered Popcorn", category: "Popcorn" },
+    { name: "Caramel Popcorn", category: "Popcorn" },
+    { name: "Cheese Popcorn", category: "Popcorn" },
+    { name: "Spicy Popcorn", category: "Popcorn" },
+    { name: "Kettle Corn", category: "Popcorn" },
+    { name: "Movie Theater Popcorn", category: "Popcorn" },
+    { name: "Sriracha Popcorn", category: "Popcorn" },
+    { name: "Dill Pickle Popcorn", category: "Popcorn" },
+    { name: "White Chocolate Popcorn", category: "Popcorn" },
+    { name: "Cinnamon Sugar Popcorn", category: "Popcorn" },
+    
+    // Chocolate Treats
+    { name: "Chocolate Chip Cookies", category: "Chocolate" },
+    { name: "Brownie", category: "Chocolate" },
+    { name: "Chocolate Covered Almonds", category: "Chocolate" },
+    { name: "Chocolate Truffles", category: "Chocolate" },
+    { name: "Chocolate Fudge", category: "Chocolate" },
+    { name: "Chocolate Mousse", category: "Chocolate" },
+    { name: "Cocoa Dusted Almonds", category: "Chocolate" },
+    { name: "Chocolate Caramels", category: "Chocolate" },
+    { name: "Chocolate Pudding", category: "Chocolate" },
+    { name: "Chocolate Granola Bars", category: "Chocolate" },
+    
+    // Candy & Sweets
+    { name: "Gummy Bears", category: "Candy" },
+    { name: "Sour Gummy Worms", category: "Candy" },
+    { name: "Jelly Beans", category: "Candy" },
+    { name: "Skittles", category: "Candy" },
+    { name: "M&Ms", category: "Candy" },
+    { name: "Lollipops", category: "Candy" },
+    { name: "Hard Candy", category: "Candy" },
+    { name: "Taffy Candy", category: "Candy" },
+    { name: "Licorice Twists", category: "Candy" },
+    { name: "Sour Patch Kids", category: "Candy" },
+    
+    // Nuts & Seeds
+    { name: "Almonds", category: "Nuts" },
+    { name: "Cashews", category: "Nuts" },
+    { name: "Pecans", category: "Nuts" },
+    { name: "Walnuts", category: "Nuts" },
+    { name: "Pistachios", category: "Nuts" },
+    { name: "Mixed Nuts", category: "Nuts" },
+    { name: "Candied Pecans", category: "Nuts" },
+    { name: "Honey Roasted Almonds", category: "Nuts" },
+    { name: "Spiced Cashews", category: "Nuts" },
+    { name: "Sunflower Seeds", category: "Seeds" },
+    
+    // Salty Snacks
+    { name: "Potato Chips", category: "Salty" },
+    { name: "Tortilla Chips", category: "Salty" },
+    { name: "Pretzels", category: "Salty" },
+    { name: "Cheese Crackers", category: "Salty" },
+    { name: "Saltines", category: "Salty" },
+    { name: "Goldfish Crackers", category: "Salty" },
+    { name: "Chex Mix", category: "Salty" },
+    { name: "Wasabi Peas", category: "Salty" },
+    { name: "Roasted Chickpeas", category: "Salty" },
+    { name: "Dried Seaweed Snack", category: "Salty" },
+    
+    // Fruit Snacks
+    { name: "Apple with Peanut Butter", category: "Fruit" },
+    { name: "Banana Chips", category: "Fruit" },
+    { name: "Dried Cranberries", category: "Fruit" },
+    { name: "Dried Mango", category: "Fruit" },
+    { name: "Raisins", category: "Fruit" },
+    { name: "Dried Apricots", category: "Fruit" },
+    { name: "Dried Blueberries", category: "Fruit" },
+    { name: "Fruit Leather", category: "Fruit" },
+    { name: "Fresh Strawberries", category: "Fruit" },
+    { name: "Orange Slices", category: "Fruit" },
+    
+    // Dairy Snacks
+    { name: "Cheese Cubes", category: "Dairy" },
+    { name: "String Cheese", category: "Dairy" },
+    { name: "Cheese and Crackers", category: "Dairy" },
+    { name: "Yogurt", category: "Dairy" },
+    { name: "Greek Yogurt Parfait", category: "Dairy" },
+    { name: "Milk and Cookies", category: "Dairy" },
+    { name: "Cottage Cheese", category: "Dairy" },
+    { name: "Mozzarella Sticks", category: "Dairy" },
+    { name: "Cheddar Cheese", category: "Dairy" },
+    { name: "Parmesan Crisps", category: "Dairy" },
+    
+    // Homemade Treats
+    { name: "Homemade Trail Mix", category: "Homemade" },
+    { name: "Granola Bars", category: "Homemade" },
+    { name: "Energy Balls", category: "Homemade" },
+    { name: "Banana Bread", category: "Homemade" },
+    { name: "Zucchini Bread", category: "Homemade" },
+    { name: "Homemade Granola", category: "Homemade" },
+    { name: "Cookies and Cream Bites", category: "Homemade" },
+    { name: "No-Bake Cheesecake Bites", category: "Homemade" },
+    { name: "Homemade Beef Jerky", category: "Homemade" },
+    { name: "Date and Almond Bars", category: "Homemade" },
+    
+    // Dips and Spreads
+    { name: "Hummus and Veggies", category: "Dips" },
+    { name: "Guacamole and Chips", category: "Dips" },
+    { name: "Salsa and Chips", category: "Dips" },
+    { name: "Spinach Artichoke Dip", category: "Dips" },
+    { name: "Ranch Dip and Veggies", category: "Dips" },
+    { name: "Peanut Butter and Crackers", category: "Dips" },
+    { name: "Almond Butter and Apple", category: "Dips" },
+    { name: "Cream Cheese and Pepperoni", category: "Dips" },
+    { name: "Queso Dip and Chips", category: "Dips" },
+    { name: "Hummus Wrap", category: "Dips" },
+    
+    // Soda and Drinks (pairing suggestions)
+    { name: "Coca-Cola", category: "Drink" },
+    { name: "Sprite", category: "Drink" },
+    { name: "Orange Fanta", category: "Drink" },
+    { name: "Root Beer Float", category: "Drink" },
+    { name: "Lemonade", category: "Drink" },
+    { name: "Iced Tea", category: "Drink" },
+    { name: "Ginger Ale", category: "Drink" },
+    { name: "Hot Chocolate", category: "Drink" },
+    { name: "Coffee", category: "Drink" },
+    { name: "Milkshake", category: "Drink" },
+    
+    // Ice Cream & Frozen Treats
+    { name: "Vanilla Ice Cream", category: "Frozen" },
+    { name: "Chocolate Ice Cream", category: "Frozen" },
+    { name: "Strawberry Ice Cream", category: "Frozen" },
+    { name: "Mint Chocolate Chip", category: "Frozen" },
+    { name: "Cookie Dough Ice Cream", category: "Frozen" },
+    { name: "Salted Caramel Ice Cream", category: "Frozen" },
+    { name: "Rocky Road Ice Cream", category: "Frozen" },
+    { name: "Butter Pecan Ice Cream", category: "Frozen" },
+    { name: "Ice Cream Sandwich", category: "Frozen" },
+    { name: "Frozen Yogurt", category: "Frozen" },
+    
+    // Baked Goods
+    { name: "Sugar Cookie", category: "Baked" },
+    { name: "Oatmeal Raisin Cookie", category: "Baked" },
+    { name: "Peanut Butter Cookie", category: "Baked" },
+    { name: "Double Chocolate Chip", category: "Baked" },
+    { name: "Shortbread Cookie", category: "Baked" },
+    { name: "Snickerdoodle", category: "Baked" },
+    { name: "Molasses Cookie", category: "Baked" },
+    { name: "Biscotti", category: "Baked" },
+    { name: "Donuts", category: "Baked" },
+    { name: "Cinnamon Roll", category: "Baked" },
+    
+    // Spicy Snacks
+    { name: "Spicy Chips", category: "Spicy" },
+    { name: "Ghost Pepper Peanuts", category: "Spicy" },
+    { name: "Jalapeño Poppers", category: "Spicy" },
+    { name: "Spicy Beef Jerky", category: "Spicy" },
+    { name: "Sriracha Almonds", category: "Spicy" },
+    { name: "Spicy Pumpkin Seeds", category: "Spicy" },
+    { name: "Habanero Cashews", category: "Spicy" },
+    { name: "Spicy Popcorn Seasoning", category: "Spicy" },
+    { name: "Thai Chili Peanuts", category: "Spicy" },
+    { name: "Spicy Wasabi Mix", category: "Spicy" },
+    
+    // Protein Snacks
+    { name: "Protein Bar", category: "Protein" },
+    { name: "Trail Mix with Protein", category: "Protein" },
+    { name: "Beef Jerky", category: "Protein" },
+    { name: "Turkey Jerky", category: "Protein" },
+    { name: "Protein Chips", category: "Protein" },
+    { name: "Roasted Chickpeas", category: "Protein" },
+    { name: "Hard Boiled Eggs", category: "Protein" },
+    { name: "Nuts and Seeds Mix", category: "Protein" },
+    { name: "Cottage Cheese with Fruit", category: "Protein" },
+    { name: "Peanut Butter Bites", category: "Protein" },
+    
+    // Gourmet/Fancy Snacks
+    { name: "Chocolate Mousse", category: "Gourmet" },
+    { name: "Brie and Crackers", category: "Gourmet" },
+    { name: "Aged Cheddar", category: "Gourmet" },
+    { name: "Prosciutto and Melon", category: "Gourmet" },
+    { name: "Caviar and Blini", category: "Gourmet" },
+    { name: "Smoked Salmon and Cream Cheese", category: "Gourmet" },
+    { name: "Pâté and Toast", category: "Gourmet" },
+    { name: "Truffle Oil Popcorn", category: "Gourmet" },
+    { name: "Goat Cheese and Honey", category: "Gourmet" },
+    { name: "Dark Chocolate and Sea Salt", category: "Gourmet" },
+    
+    // Vegan Snacks
+    { name: "Vegan Trail Mix", category: "Vegan" },
+    { name: "Vegan Granola Bars", category: "Vegan" },
+    { name: "Coconut Chips", category: "Vegan" },
+    { name: "Almond Flour Cookies", category: "Vegan" },
+    { name: "Tahini Cookies", category: "Vegan" },
+    { name: "Chia Seed Pudding", category: "Vegan" },
+    { name: "Dates Stuffed with Almonds", category: "Vegan" },
+    { name: "Vegan Protein Balls", category: "Vegan" },
+    { name: "Cashew Cream", category: "Vegan" },
+    { name: "Matcha Energy Bites", category: "Vegan" },
+    
+    // Seasonal Snacks
+    { name: "Pumpkin Seeds", category: "Seasonal" },
+    { name: "Gingerbread Cookies", category: "Seasonal" },
+    { name: "Candy Corn", category: "Seasonal" },
+    { name: "Eggnog", category: "Seasonal" },
+    { name: "Pumpkin Spice Everything", category: "Seasonal" },
+    { name: "Pecan Pie Bites", category: "Seasonal" },
+    { name: "Candy Canes", category: "Seasonal" },
+    { name: "Holiday Fudge", category: "Seasonal" },
+    { name: "Cranberry Muffin", category: "Seasonal" },
+    { name: "Candied Pecans", category: "Seasonal" },
+    
+    // Fun Mix Options
+    { name: "Sweet and Salty Mix", category: "Mix" },
+    { name: "Trail Mix Deluxe", category: "Mix" },
+    { name: "Chocolate and Pretzel Mix", category: "Mix" },
+    { name: "Candy and Popcorn", category: "Mix" },
+    { name: "Nuts and Chocolate", category: "Mix" },
+    { name: "Fruit and Nut Combo", category: "Mix" },
+    { name: "Chip and Dip Combo", category: "Mix" },
+    { name: "Sweet Breakfast Mix", category: "Mix" },
+    { name: "Savory Party Mix", category: "Mix" },
+    { name: "Dessert Medley", category: "Mix" }
+];
